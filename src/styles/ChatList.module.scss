@@ -1,0 +1,85 @@
+.chatList{
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.204);
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+
+    .chatsHeading{
+        margin: 10px 0;
+        font-size: xx-large;
+        font-weight: 600;
+
+    }
+    .searchbarContainer{
+        display: flex;
+        align-items: center;
+        background-color: #F2F7FF;
+        border-radius: 10px;
+        height: 50px;
+        overflow: hidden;
+        .searchbar{
+            width: 100%;
+            
+            background-color: #F2F7FF;
+            border: none;
+            padding: 0 20px;
+            font-size: large;
+
+            &:focus{
+                outline: none;
+            }
+            
+        }
+        .searchIcon{
+            margin: 0 15px;
+        }
+    }
+    .conversations{
+        background-color: #F2F7FF;
+        height: 620px;
+        border-radius: 5px;
+        margin-top: 20px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+            width: 15px;
+          }
+        
+          &::-webkit-scrollbar-thumb {
+            background-color:  #1218e2 ;
+            border-radius: 4px;
+          }
+          &::-webkit-scrollbar-track {
+            background: #c6d5ff;
+          }
+        .conversation{
+            min-height: 80px;
+            padding: 5px;
+            border-radius: 5px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px;
+            &:hover{
+                cursor: pointer;
+                background-color: #c6d5ff;
+            }
+            .chatInfo{
+                .username{
+                    font-size: 18px;
+                    font-weight: 600;
+                }
+                .lastMessage{
+                    font-size: 14px;
+                    color: gray;
+                }
+            }
+        }
+    }
+
+}
