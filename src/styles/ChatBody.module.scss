@@ -30,7 +30,7 @@
 
   .messages {
     padding: 20px 0;
-    height: 600px;
+    height: 560px;
     display: flex;
     flex-direction: column-reverse;
     overflow-y: auto;
@@ -73,6 +73,7 @@
       border-radius: 5px;
       background-color: #f2f7ff;
       color: black;
+      max-width: 50%;
 
       &.sentMessage {
         background-color: #e2f2ff;
@@ -89,7 +90,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: #f2f7ff;
+    background-color: #f2f7ff;      
+    box-shadow: rgb(225, 225, 225) 0px 0px 3px;
 
     .inputField {
       width: 100%;

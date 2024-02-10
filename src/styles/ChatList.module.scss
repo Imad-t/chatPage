@@ -19,9 +19,9 @@
         border-radius: 10px;
         height: 50px;
         overflow: hidden;
+        box-shadow: rgb(225, 225, 225) 0px 0px 3px;
         .searchbar{
             width: 100%;
-            
             background-color: #F2F7FF;
             border: none;
             padding: 0 20px;
@@ -38,7 +38,7 @@
     }
     .conversations{
         background-color: #F2F7FF;
-        height: 620px;
+        height: 580px;
         border-radius: 5px;
         margin-top: 20px;
         padding: 10px;
@@ -46,6 +46,7 @@
         flex-direction: column;
         gap: 10px;
         overflow-y: scroll;
+        box-shadow: rgb(225, 225, 225) 0px 0px 3px;
         &::-webkit-scrollbar {
             width: 15px;
           }

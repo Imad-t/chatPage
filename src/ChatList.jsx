@@ -31,7 +31,7 @@ const getColorForAvatar = (avatarId) => {
 
 const ChatList = ({ setSelectedConversation }) => {
   const [searchQuery, setSearchQuery] = useState("");
-
+  setSelectedConversation(conversations[0]);
   const handleConversationClick = (conversation) => {
     setSelectedConversation(conversation);
   };
