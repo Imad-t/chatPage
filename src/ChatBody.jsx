@@ -2,6 +2,7 @@ import Avatar from '@mui/joy/Avatar';
 import styles from "./styles/ChatBody.module.scss";
 import { AddIcon } from "@chakra-ui/icons";
 import SendIcon from "@mui/icons-material/Send";
+import chatIcon from "./assets/chats.png";
 
 const ChatBody = ({ selectedConversation }) => {
 
@@ -23,16 +24,26 @@ const ChatBody = ({ selectedConversation }) => {
     return colors[index];
   };
 
+  if (!selectedConversation) {
+    return (
+      <div className={styles.chatBody}>
+        <div className={styles.noConvo}>
+        <h2>No chat selected</h2>
+        <img src={chatIcon} alt="Chat icon" width="200px" />
+        </div>
+      </div>
+    );
+  }
   return (
     <div className={styles.chatBody}>
       {selectedConversation && (
-        <div>
+        <div className={styles.convo}>
           <div className={styles.recepiantInfo}>
             <div className={styles.recepiantImage}>
               <Avatar
                 className={styles.avatar}
                 src={selectedConversation.avatar || undefined}
-                style={{width: 80, height: 80,  backgroundColor: selectedConversation.avatar ? undefined : getColorForAvatar(selectedConversation.id)}}
+                style={{  backgroundColor: selectedConversation.avatar ? undefined : getColorForAvatar(selectedConversation.id)}}
                 bg="blue.200"
                 name={selectedConversation.username}
               />

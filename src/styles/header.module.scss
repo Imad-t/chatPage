@@ -3,8 +3,24 @@
     height: 10vh;
     font-size: 40px;
     font-weight: 800;
+    text-shadow: rgb(145, 145, 145) 1px 1px 0px;
     color: white;
     padding:  0 40px ;
     display: flex;
-    align-items: center;
+    align-items: center
+    ;justify-content: space-between;
+
+    @media screen and (max-width: 640px){
+      padding: 0 15px;
+      font-size: 30px;
+    }
+    @media screen and (max-width: 1024px){
+      .menu{
+        width: 45px;
+        height: 45px;
+        background-image: url("../assets/menu.png");
+        background-size: contain;
+        cursor: pointer;
+      }
+    }
   }

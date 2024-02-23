@@ -6,18 +6,21 @@ import { useState } from "react";
 
 const ChatPage = () => {
   const [selectedConversation, setSelectedConversation] = useState(null);
+  const [menu, setMenu] = useState(false);
 
   return (
     <div className={styles.app}>
-      <Header className={styles.header} />
+      <Header menu={menu} setMenu={setMenu} className={styles.header} />
       <div className={styles.chat}>
         <ChatList
           setSelectedConversation={setSelectedConversation}
-          className={styles.item}
+          menu={menu}
+          setMenu={setMenu}
+          className={styles.list}
         />
         <ChatBody
           selectedConversation={selectedConversation}
-          className={styles.item}
+          className={styles.body}
         />
       </div>
     </div>

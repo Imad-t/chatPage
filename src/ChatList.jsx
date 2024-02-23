@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Avatar from '@mui/joy/Avatar';
+import Avatar from "@mui/joy/Avatar";
 import { SearchIcon } from "@chakra-ui/icons";
 import styles from "./styles/ChatList.module.scss";
 import { conversations } from "./data/texts";
@@ -20,7 +20,6 @@ const getColorForAvatar = (avatarId) => {
     "#cbbbdb", // lavender
     "#ADFF2F", // green
     "#FFC0CB", // Pink
-
   ];
 
   // Get the index based on the avatarId
@@ -29,11 +28,11 @@ const getColorForAvatar = (avatarId) => {
   return colors[index];
 };
 
-const ChatList = ({ setSelectedConversation }) => {
+const ChatList = ({ setSelectedConversation, menu, setMenu }) => {
   const [searchQuery, setSearchQuery] = useState("");
-  setSelectedConversation(conversations[0]);
   const handleConversationClick = (conversation) => {
     setSelectedConversation(conversation);
+    setMenu(!menu);
   };
 
   const handleSearchChange = (event) => {
@@ -45,8 +44,8 @@ const ChatList = ({ setSelectedConversation }) => {
   );
 
   return (
-    <div className={styles.chatList}>
-      <h2 className={styles.chatsHeading}>Chats</h2>
+    <div className={`${styles.chatList} ${!menu && styles.hideOnMobile}`}>
+      <div className={styles.chatsHeading}>Chats <span className={styles.menu} onClick={()=>{setMenu(!menu)}}></span></div>
       <div className={styles.searchbarContainer}>
         <input
           className={styles.searchbar}
@@ -55,9 +54,12 @@ const ChatList = ({ setSelectedConversation }) => {
           value={searchQuery}
           onChange={handleSearchChange}
         />
-        
-          <SearchIcon className={styles.searchIcon} size={8} style={{ color: "#1218e2 " }} />
-        
+
+        <SearchIcon
+          className={styles.searchIcon}
+          size={8}
+          style={{ color: "#1218e2 " }}
+        />
       </div>
       <div className={styles.conversations}>
         {filteredConversations.map((conversation) => (
@@ -69,7 +71,13 @@ const ChatList = ({ setSelectedConversation }) => {
             <Avatar
               className={styles.avatar}
               src={conversation.avatar || undefined}
-              style={{width: 80, height: 80,   backgroundColor: conversation.avatar ? undefined : getColorForAvatar(conversation.id)}}
+              style={{
+                width: 60,
+                height: 60,
+                backgroundColor: conversation.avatar
+                  ? undefined
+                  : getColorForAvatar(conversation.id),
+              }}
               name={conversation.username}
             />
             <div className={styles.chatInfo}>

@@ -1,124 +1,165 @@
 .chatBody {
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.204);
-  background-color: white;
-  border-radius: 5px;
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
-
-  .recepiantInfo {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.204);
+    background-color: white;
+    border-radius: 5px;
     display: flex;
-    align-items: center;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #c6d5ff;
-
-    .recepiantImage {
-      margin: 0 20px;
-      // .avatar{
-      //   height: 60px;
-      //   width: 60px;
-      //   border-radius: 50%;
-      //   background-color: #c6d5ff;
-      // }
+    flex-direction: column;
+    height: calc(90vh - 40px);
+    @media screen and (max-width: 1024px) {
+      height: calc(90vh - 20px);
     }
-
-    .recepiantname {
-      font-size: 18px;
-      font-weight: 600;
+    @media screen and (max-width: 480px) {
+      height: 90vh;
     }
-  }
-
-  .messages {
-    padding: 20px 0;
-    height: 560px;
-    display: flex;
-    flex-direction: column-reverse;
-    overflow-y: auto;
-    &::-webkit-scrollbar {
-      width: 15px;
-    }
-
-    &::-webkit-scrollbar-thumb {
-      background-color: #1218e2;
-      border-radius: 4px;
-    }
-    &::-webkit-scrollbar-track {
-      background: #c6d5ff;  
-    }
-  }
-
-  .message {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 10px;
-    padding: 0 20px;
-
-    &.currentUserMessage {
-      flex-direction: row-reverse;
-    }
-
-    .avatarContainer {
+  
+    .noConvo {
       display: flex;
-      align-items: flex-end;
-      margin: 0 10px;
-    }
-
-    .avatar {
-      width: 30px;
-      height: 30px;
-    }
-
-    .messageContent {
-      padding: 8px;
-      border-radius: 5px;
-      background-color: #f2f7ff;
-      color: black;
-      max-width: 50%;
-
-      &.sentMessage {
-        background-color: #e2f2ff;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+  
+      h2 {
+        color: rgb(61, 61, 61);
       }
     }
-  }
-
-  .textInput {
-    height: 60px;
-    border: none;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 0 40px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #f2f7ff;      
-    box-shadow: rgb(225, 225, 225) 0px 0px 3px;
-
-    .inputField {
+  
+    .convo {
       width: 100%;
       height: 100%;
-      padding: 0 20px;
-      resize: none;
+    }
+  
+    .recepiantInfo {
+      display: flex;
+      align-items: center;
+      padding: 10px 0;
       background-color: #f2f7ff;
-      border: none;
-      &:focus {
-        outline: none;
+      border-bottom: 1px solid #eeeff0;
+      height: 10%;
+      .recepiantImage {
+        margin: 0 20px;
+        .avatar {
+          width: 60px;
+          height: 60px;
+        }
+      }
+      .recepiantname {
+        font-size: 18px;
+        font-weight: 600;
+      }
+      @media screen and (max-width: 480px) {
+        .recepiantImage {
+          margin: 0 10px;
+          .avatar {
+            width: 50px;
+            height: 50px;
+          }
+        }
       }
     }
-
-    .textButton {
-      width: 60px;
-      height: 100%;
+  
+    .messages {
+      padding: 20px 0;
+      height: 70%;
+      display: flex;
+      flex-direction: column-reverse;
+      overflow-y: auto;
+      &::-webkit-scrollbar {
+        width: 10px;
+      }
+  
+      &::-webkit-scrollbar-thumb {
+        background-color: #1218e2;
+        border-radius: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background: #c6d5ff;
+      }
+    }
+  
+    .message {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 10px;
+      padding: 0 20px;
+  
+      &.currentUserMessage {
+        flex-direction: row-reverse;
+      }
+  
+      .avatarContainer {
+        display: flex;
+        align-items: flex-end;
+        margin: 0 10px;
+      }
+  
+      .avatar {
+        width: 30px;
+        height: 30px;
+      }
+  
+      .messageContent {
+        padding: 8px;
+        border-radius: 5px;
+        background-color: #f2f7ff;
+        color: black;
+        max-width: 50%;
+  
+        &.sentMessage {
+          background-color: #e2f2ff;
+        }
+      }
+      @media screen and (max-width: 480px) {
+        font-size: small;
+        padding: 0 5px;
+      }
+    }
+  
+    .textInput {
+      height: 10%;
       border: none;
-      color: #1218e2;
-      cursor: pointer;
-      .icon{
-        height: 24px;
-        width: 24px;
-        padding: auto;
-        &:hover {
-          scale: 1.2;
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 40px;
+      @media screen and (max-width: 1280px) {
+        margin: 0 20px;
+      }
+      @media screen and (max-width: 480px) {
+        margin: 0 10px;
+      }
+      display: flex;
+      // align-items: center;
+      justify-content: space-between;
+      background-color: #f2f7ff;
+      box-shadow: rgb(225, 225, 225) 0px 0px 3px;
+  
+      .inputField {
+        width: 100%;
+        height: 100%;
+        padding: 0 20px;
+        resize: none;
+        background-color: #f2f7ff;
+        border: none;
+        &:focus {
+          outline: none;
+        }
+      }
+  
+      .textButton {
+        width: 60px;
+        height: 100%;
+        border: none;
+        color: #1218e2;
+        cursor: pointer;
+        .icon {
+          height: 24px;
+          width: 24px;
+          padding: auto;
+          &:hover {
+            scale: 1.2;
+          }
         }
       }
     }
   }
-}
+  
